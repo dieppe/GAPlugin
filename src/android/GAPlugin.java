@@ -1,7 +1,7 @@
 package com.adobe.plugins;
 
-import org.apache.cordova.api.CallbackContext;
-import org.apache.cordova.api.CordovaPlugin;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 
 import com.google.analytics.tracking.android.GAServiceManager;
@@ -43,7 +43,7 @@ public class GAPlugin extends CordovaPlugin {
 		} else if (action.equals("trackPage")) {
 			try {
 				tracker.sendView(args.getString(0));
-				callback.success("trackPage - url = " + args.getString(0));
+				callback.success("trackPage = " + args.getString(0));
 				return true;
 			} catch (final Exception e) {
 				callback.error(e.getMessage());
