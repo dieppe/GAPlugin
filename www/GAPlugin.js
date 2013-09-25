@@ -10,7 +10,7 @@ var exec = require('cordova/exec');
  * @param {number} period - The minimum interval for transmitting tracking
  *                          events if any exist in the queue
  */
-GAPlugin.prototype.init = function(success, fail, id, period) {
+GAPlugin.init = function(success, fail, id, period) {
   return exec(success, fail, 'GAPlugin', 'initGA', [id, period]);
 };
 
@@ -23,7 +23,7 @@ GAPlugin.prototype.init = function(success, fail, id, period) {
  * @param {number} eventValue - The event value. This parameter may be -1 to
  *                              indicate no value.
  */
-GAPlugin.prototype.trackEvent = function(success, fail, category, eventAction, eventLabel, eventValue) {
+GAPlugin.trackEvent = function(success, fail, category, eventAction, eventLabel, eventValue) {
   return exec(success, fail, 'GAPlugin', 'trackEvent', [category, eventAction, eventLabel, eventValue]);
 };
 
@@ -33,7 +33,7 @@ GAPlugin.prototype.trackEvent = function(success, fail, category, eventAction, e
  *
  * @param {string} pageURL - The URL of the page view
  */
-GAPlugin.prototype.trackPage = function(success, fail, pageURL) {
+GAPlugin.trackPage = function(success, fail, pageURL) {
   return exec(success, fail, 'GAPlugin', 'trackPage', [pageURL]);
 };
 
@@ -47,11 +47,11 @@ GAPlugin.prototype.trackPage = function(success, fail, pageURL) {
  *                         variable will be assigned (1 - 20)
  *                         Standard accounts support up to 20 custom dimensions.
  */
-GAPlugin.prototype.setVariable = function(success, fail, index, value) {
+GAPlugin.setVariable = function(success, fail, index, value) {
   return exec(success, fail, 'GAPlugin', 'setVariable', [index, value]);
 };
 
-GAPlugin.prototype.exit = function(success, fail) {
+GAPlugin.exit = function(success, fail) {
   return exec(success, fail, 'GAPlugin', 'exitGA', []);
 };
 
