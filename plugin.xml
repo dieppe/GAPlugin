@@ -23,8 +23,10 @@
 
     <!-- android -->
     <platform name="android">
-        <config-file target="res/xml/config.xml" parent="plugins">
-            <plugin name="GAPlugin" value="com.adobe.plugins.GAPlugin"/>
+	<config-file target="res/xml/config.xml" parent="/*">
+            <feature name="GAPlugin">
+            	<param name="android-package" value="com.adobe.plugins.GAPlugin"/>
+            </feature>
         </config-file>
 
         <source-file src="src/android/GAPlugin.java"
@@ -35,12 +37,14 @@
 
     <!-- ios -->
     <platform name="ios">
-		<config-file target="config.xml" parent="plugins">
-			<plugin name="GAPlugin" value="GAPlugin"/>
-		</config-file>
+	<config-file target="config.xml" parent="/*">
+		<feature name="GAPlugin" >
+			<param name="ios-package" value="GAPlugin"/>
+		</feature>
+	</config-file>
 
         <source-file src="src/ios/GAPlugin.m" />
-		<source-file src="src/ios/GoogleAnalytics.a" framework="true" />
+	<source-file src="src/ios/GoogleAnalytics.a" framework="true" />
 
         <header-file src="src/ios/GAITransactionItem.h" />
         <header-file src="src/ios/GAITransaction.h" />
